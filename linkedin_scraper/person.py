@@ -123,13 +123,13 @@ class Person(Scraper):
                 EC.presence_of_element_located(
                     (
                         By.CLASS_NAME,
-                        "inline-show-more-text inline-show-more-text--is-collapsed",
+                        "display-flex ph5 pv3",
                     )
                 )
             )
-            driver.execute_script("arguments[0].click();", see_more)
+#             driver.execute_script("arguments[0].click();", see_more)
 
-            about = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
+            about = WebDriverWait(see_more, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
                 EC.presence_of_element_located(
                     (
                         By.CLASS_NAME,
