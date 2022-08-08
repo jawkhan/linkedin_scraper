@@ -61,17 +61,15 @@ class Accomplishment(Institution):
 
 @dataclass
 class Scraper:
-#     driver: Chrome = None
-
+    driver: Chrome = None
+        
     def is_signed_in(self):
-        if self.driver.find_element(By.ID, c.VERIFY_LOGIN_ID):
-            print("1")
+        try:
+            self.driver.find_element(By.ID, c.VERIFY_LOGIN_ID):
             return True
-        elif WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CLASS_NAME, "pv-top-card",))):
-            print("2")
-            return True
-        else:
-            return False
+        except:
+            pass
+        return False
 
     def __find_element_by_class_name__(self, class_name):
         try:
