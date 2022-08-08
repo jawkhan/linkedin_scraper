@@ -32,22 +32,12 @@ def login(driver, email=None, password=None, cookie = None, timeout=10):
 
   try:
     if driver.url == 'https://www.linkedin.com/checkpoint/lg/login-submit':
-      print("WOOOOO1")
       remember = driver.find_element(By.ID, c.REMEMBER_PROMPT)
-      print("WOOOOO2")
       if remember:
-        print("WOOOOO3")
         remember.submit()
-        print("WOOOOO4")
 
     element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, c.VERIFY_LOGIN_ID)))
-    print("WOOOOO5")
-  except:
-    element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, c.VERIFY_LOGIN_ID)))
-    print(i for i in element)
-    print("NOOOOOOOOOOOOOOOOOOOOO!")
-    element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, c.VERIFY_LOGIN_ID)))
-    print(i for i in element)
+  except: 
     pass
   
 def _login_with_cookie(driver, cookie):
