@@ -84,6 +84,7 @@ class Person(Scraper):
 
     def scrape(self, close_on_complete=True):
         if self.is_signed_in():
+            print("You are logged in.")
             self.scrape_logged_in(close_on_complete=close_on_complete)
         else:
             print("you are not logged in!")
