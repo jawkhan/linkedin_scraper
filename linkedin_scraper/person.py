@@ -39,8 +39,9 @@ class Person(Scraper):
         self.accomplishments = accomplishments or []
         self.also_viewed_urls = []
         self.contacts = contacts or []
+        self.driver = driver
 
-        if driver is None:
+        if self.driver is None:
             try:
                 if os.getenv("CHROMEDRIVER") == None:
                     driver_path = os.path.join(
@@ -49,14 +50,14 @@ class Person(Scraper):
                 else:
                     driver_path = os.getenv("CHROMEDRIVER")
 
-                driver = webdriver.Chrome(driver_path)
+                self.driver = webdriver.Chrome(driver_path)
             except:
-                driver = webdriver.Chrome()
+                self.driver = webdriver.Chrome()
 
         if get:
-            driver.get(linkedin_url)
+            self.driver.get(linkedin_url)
 
-        self.driver = driver
+        
 
         if scrape:
             self.scrape(close_on_complete)
