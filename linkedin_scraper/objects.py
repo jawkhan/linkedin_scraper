@@ -58,10 +58,10 @@ class Scraper:
 
     def is_signed_in(self):
         try:
-            self.driver.maximize_window() # For maximizing window
-            self.driver.implicitly_wait(20) # gives an implicit wait for 20 seconds
-            self.driver.find_element(By.XPATH, "/html/body/div[5]/header/div/div")
+            element = WebDriverWait(self.driver, 50).until(EC.presence_of_element_located((By.ID, c.VERIFY_LOGIN_ID)))
             return True
+            #self.driver.find_element(By.ID, c.VERIFY_LOGIN_ID)
+            #return True
         except:
             pass
         return False
