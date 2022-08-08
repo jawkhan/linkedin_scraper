@@ -119,21 +119,21 @@ class Person(Scraper):
 
         # get about
         try:
-#             see_more = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
-#                 EC.presence_of_element_located(
-#                     (
-#                         By.XPATH,
-#                         "//*[@class='lt-line-clamp__more']",
-#                     )
-#                 )
-#             )
-#             driver.execute_script("arguments[0].click();", see_more)
+            see_more = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
+                EC.presence_of_element_located(
+                    (
+                        By.CLASS_NAME,
+                        "inline-show-more-text inline-show-more-text--is-collapsed",
+                    )
+                )
+            )
+            driver.execute_script("arguments[0].click();", see_more)
 
             about = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
                 EC.presence_of_element_located(
                     (
-                        By.XPATH,
-                        "//*[@id='ember76']/div[3]/div/div/div/span[1]",
+                        By.CLASS_NAME,
+                        "visually-hidden",
                     )
                 )
             )
