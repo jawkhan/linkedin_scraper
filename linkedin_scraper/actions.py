@@ -44,10 +44,10 @@ def login(driver, email=None, password=None, cookie = None, timeout=10):
     print("WOOOOO5")
   except:
     element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, c.VERIFY_LOGIN_ID)))
-    print(element)
+    print(i for i in element)
     print("NOOOOOOOOOOOOOOOOOOOOO!")
     element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.ID, c.VERIFY_LOGIN_ID)))
-    print(element)
+    print(i for i in element)
     pass
   
 def _login_with_cookie(driver, cookie):
