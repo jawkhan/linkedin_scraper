@@ -60,7 +60,7 @@ class Scraper:
         try:
             self.driver.maximize_window() # For maximizing window
             self.driver.implicitly_wait(20) # gives an implicit wait for 20 seconds
-            self.driver.find_element(By.CLASS_NAME, "global-nav__search")
+            self.driver.find_element(By.XPATH, "/html/body/div[5]/header/div/div")
             return True
         except:
             pass
