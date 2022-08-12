@@ -215,7 +215,10 @@ class Person(Scraper):
             _ = WebDriverWait(driver, self.__WAIT_FOR_ELEMENT_TIMEOUT).until(
                 EC.presence_of_element_located((By.ID, "education-section"))
             )
+            print("working on edu")
             edu = driver.find_element(By.ID, "education-section")
+
+            print("printing education: {0}".format(edu))
         except:
             edu = None
         if edu:
